@@ -3,7 +3,7 @@ Documentação dos estudos de SQL
 
 ### COMANDOS BÁSICOS
 
-* SELECT
+* __SELECT__
 
 -> Comando usado para selecionar colunas de tabelas
 
@@ -11,13 +11,13 @@ Documentação dos estudos de SQL
 
 -> Pode-se utilizar o asterisco (*) para selecionar todas as colunas da tabela
 
-__SINTAXE__:
+SINTAXE:
 ~~~sql
 select coluna_1, coluna_2, coluna_3
 from schema_1.tabela_1
 # ordem de consulta nome_banco.nome_tabela
 ~~~
-__EXERCÍCIOS__:
+EXEMPLOS:
 1. Liste os e-mails dos clientes da tabela sales.customers
 ~~~sql
 select email
@@ -34,7 +34,7 @@ select *
 from sales.customers
 ~~~
 
-* DISTINCT
+* __DISTINCT__
 
 -> Comando usado para remover linhas duplicadas e mostrar apenas linhas distintas
 
@@ -42,12 +42,12 @@ from sales.customers
 
 -> Caso mais de uma coluna seja selecionada, o comando **SELECT DISTINCT** irá retornar todas as combinações distintas
 
-__SINTAXE__:
+SINTAXE:
 ~~~sql
 select distinct coluna_1, coluna_2, coluna_3
 from schema_1.tabela_1
 ~~~
-__EXERCÍCIOS__:
+EXEMPLOS:
 1. Seleção de uma coluna sem DISTINCT -- Liste as marcas de carro que constam na tabela products
 ~~~sql
 select brand
@@ -62,4 +62,42 @@ from sales.products
 ~~~sql
 select distinct brand, model_year
 from sales.products
+~~~
+
+* __WHERE__
+
+-> Comando utilizado para filtrar linhas de acordo com uma condição
+
+-> No PostgreSQL são utilizadas aspas simples para delimitar strings
+
+-> String = sequência de caracteres = texto
+
+-> Pode-se combinar mais de uma condição utilizando os operadores lógicos
+
+-> No PostgreSQL as são escritas no formato 'YYYY-MM-DD' ou 'YYYYMMDD'
+
+SINTAXE:
+~~~sql
+select coluna_1, coluna_2, coluna_3
+from schema_1.tabela_1
+where condição_x
+~~~
+EXEMPLOS:
+1. Filtro com condição única -- Liste os emails dos clientes da nossa base que moram no estado de Santa Catarina
+~~~sql
+select emais, state
+from sales.customers
+where state='SC'
+~~~
+2. Filtro com mais de uma condição -- Liste os emails dos clientes de Santa Catarina ou Mato Grosso do Sul
+~~~sql
+select email, state
+from sales.customers
+where state='SC' or state='MS'
+~~~
+3. Condições com datas -- Liste os emails dos clientes que moram em Santa Catarina ou Mato Grosso do Sul e que tem mais de 30 anos
+~~~sql
+select email, state, birth_date
+from sales.customers
+where (state='SC'or state='MS') and birth_date < '1994-02-03'
 ~~~
