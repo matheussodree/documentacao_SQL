@@ -33,3 +33,33 @@ from sales.customers
 select *
 from sales.customers
 ~~~
+
+* DISTINCT
+
+-> Comando usado para remover linhas duplicadas e mostrar apenas linhas distintas
+
+-> Muito utilizado na etapa de exploração dos dados
+
+-> Caso mais de uma coluna seja selecionada, o comando **SELECT DISTINCT** irá retornar todas as combinações distintas
+
+__SINTAXE__:
+~~~sql
+select distinct coluna_1, coluna_2, coluna_3
+from schema_1.tabela_1
+~~~
+__EXERCÍCIOS__:
+1. Seleção de uma coluna sem DISTINCT -- Liste as marcas de carro que constam na tabela products
+~~~sql
+select brand
+from sales.products
+~~~
+2. Seleção de uma coluna com DISTINCT -- Liste as marcas de carro distintas que constam na tabela products
+~~~sql
+select distinct brand
+from sales.products
+~~~
+3. Seleção de mais de uma coluna com DISTINCT -- Liste as marcas e anos de modelo distintos que constam na tabela products
+~~~sql
+select distinct brand, model_year
+from sales.products
+~~~
