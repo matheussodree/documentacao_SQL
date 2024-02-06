@@ -101,3 +101,11 @@ select email, state, birth_date
 from sales.customers
 where (state='SC'or state='MS') and birth_date < '1994-02-03'
 ~~~
+
+* __ORDER BY__
+
+-> Comando utilizado para ordenar a seleção de acordo com uma regra definida
+
+-> Por padrão o comando ordena na ordem crescente. Para mudar para a ordem decrescente usa-se o comando **desc**
+
+-> No caso de strings a ordenação será seguida na ordem alfabética
