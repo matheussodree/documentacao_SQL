@@ -109,3 +109,29 @@ where (state='SC'or state='MS') and birth_date < '1994-02-03'
 -> Por padrão o comando ordena na ordem crescente. Para mudar para a ordem decrescente usa-se o comando **desc**
 
 -> No caso de strings a ordenação será seguida na ordem alfabética
+
+SINTAXE:
+~~~sql
+select coluna_1, coluna_2, coluna_3
+from schema.tabela_1
+where condição_x = True
+order by coluna_1
+~~~
+EXEMPLOS:
+1. Ordenação de valores numéricos -- Liste produtos da tabela products na ordem crescente com base no preço
+~~~sql
+select *
+from sales.products
+order by price
+
+select *
+from sales.products
+order by price desc # Caso queira na ordem decrescente
+~~~
+
+2. Ordenação de texte -- Liste os estados distintos da tabela customers na ordem crescente
+~~~sql
+select distinct state
+from sales.customers
+order by state
+~~~
