@@ -205,3 +205,37 @@ limit 10
 
 -> No caso de strings o operador de adição (||) irá concatenar as strings 
 
+TIPOS:
+~~~sql
++ , - , * , / , ^ , % e ||(operador de concatenação)
+~~~
+EXEMPLOS:
+1. Criação de coluna calculada -- Crie uma coluna contendo a idade do cliente da tabela sales.customers
+~~~sql
+select
+  email,
+  birth_date
+  (current_date - birth_date) / 365 as idade_do_cliente
+from sales.customers
+
+select
+  email,
+  birth_date
+  (current_date - birth_date) / 365 as "idade do cliente"
+from sales.customers
+~~~
+2. Utilização da coluna calculada nas queries -- Liste os 10 clientes mais novos da tabela customers
+~~~sql
+select
+    email,
+    birth_date
+    (current_date - birth_date) / 365 as "Idade do cliente"
+from sales.customers
+order by "Idade do cliente"
+~~~
+3. Criação de coluna calculada com strings -- Crie a coluna "nome_completo" contendo o nome completo do cliente
+~~~sql
+select
+      first_name || ' ' || last_name as nome_completo
+from sales.customers
+~~~
