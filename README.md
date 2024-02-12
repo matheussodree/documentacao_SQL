@@ -191,3 +191,17 @@ where birth_date >= '2000-01-01'
 order by score desc
 limit 10
 ~~~
+### OPERADORES
+
+* __ARITMÉTICOS__
+
+-> Servem para executar operações matemáticas
+
+-> Muito utilizado para criar colunas calculadas
+
+-> Alias(pseudônimos) são muito utilizados para dar nome as colunas calculadas
+
+-> Para criar pseudônimos que contém espaços no nome são utilizadas aspas duplas
+
+-> No caso de strings o operador de adição (||) irá concatenar as strings 
+
