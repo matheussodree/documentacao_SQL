@@ -207,7 +207,7 @@ limit 10
 
 TIPOS:
 ~~~sql
-+ , - , * , / , ^ , % e ||(operador de concatenação)
++ (adição) , - (subtração) , * (multiplicação) , / (divisão) , ^ (exponenciação) , % (módulo) e ||(operador de concatenação)
 ~~~
 EXEMPLOS:
 1. Criação de coluna calculada -- Crie uma coluna contendo a idade do cliente da tabela sales.customers
@@ -237,5 +237,27 @@ order by "Idade do cliente"
 ~~~sql
 select
       first_name || ' ' || last_name as nome_completo
+from sales.customers
+~~~
+* __COMPARAÇÃO__
+
+-> Servem para comparar dois valores retornando TRUE ou FALSE
+
+-> Muito utilizado em conjunto com a função WHERE para filtrar linhas de uma seleção
+
+-> Utilizados para criar colunas Flag que retornem TRUE ou FALSE
+
+TIPOS:
+~~~sql
+= (igual), > (maior que), < (menor que), >= (maior ou igual), <= (menor ou igual)
+~~~
+EXEMPLOS:
+1. Uso de operadores como flag -- Crie uma coluna que retorne TRUE sempre que um cliente for um profissional clt
+~~~sql
+select
+    customer_id
+    first_name
+    professional_status,
+    (professional_status = 'clt') as cliente_clt
 from sales.customers
 ~~~
