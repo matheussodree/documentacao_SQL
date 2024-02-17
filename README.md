@@ -207,7 +207,9 @@ limit 10
 
 TIPOS:
 ~~~sql
-+ (adição) , - (subtração) , * (multiplicação) , / (divisão) , ^ (exponenciação) , % (módulo) e ||(operador de concatenação)
++ (adição) , - (subtração) , * (multiplicação) , / (divisão) , ^ (exponenciação) ,
+
+% (módulo) e ||(operador de concatenação)
 ~~~
 EXEMPLOS:
 1. Criação de coluna calculada -- Crie uma coluna contendo a idade do cliente da tabela sales.customers
