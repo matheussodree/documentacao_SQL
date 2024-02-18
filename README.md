@@ -263,3 +263,21 @@ select
     (professional_status = 'clt') as cliente_clt
 from sales.customers
 ~~~
+* __LÓGICO__
+
+-> Usados para unir expressões simples em uma composta
+
+-> AND: verifica se duas comparações são simultaneamente verdadeiras
+
+-> OR: verifica se uma ou outra comparação é verdadeira
+
+-> BETWEEN: verifica quais valores estão dentro do range definido
+
+-> IN: funciona como múltiplos ORs
+
+-> LIKE e ILIKE: comparam textos e são sempre utilizados em conjunto com o operador %, que funciona como um coringa, indicando que qualquer texto pode aparecer no lugar do campo
+
+-> ILIKE: ignora se o campo tem letras maiúsculas ou minúsculas na comparação
+
+-> IS NULL: verifica se o campo é nulo
+
