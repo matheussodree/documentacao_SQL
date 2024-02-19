@@ -284,15 +284,39 @@ from sales.customers
 EXEMPLOS:
 
 1. Uso do comando BETWEEN -- Selecione veículos que custam entre 100k e 200k na tabela products
-
+~~~sql
+select *
+from sales.products
+where price between 100000 and 200000
+~~~
 2. Uso do comando NOT -- Selecione veículos que custam abaixo de 100k ou acima de 200k
-
+~~~sql
+select *
+from sales.products
+where price not between 100000 and 200000
+~~~
 3. Uso do comando IN -- Selecione produtos que sejam da marca Honda, Toyota ou Renault
-
+~~~sql
+select *
+from sales.products
+where brand not in('HONDA', 'TOYOTA', 'RENAULT')
+~~~
 4. Uso do comando LIKE (matchs imperfeitos) -- Selecione os primeiros nomes distintos da tabela customers que começam com as iniciais ANA
-
+~~~sql
+select distinct first_name
+from sales.customers
+where first_name like 'ANA%'
+~~~
 5. Uso do comando ILIKE(ignora letras maiúsculas e minúsculas) -- Selecione os primeiros nomes distintos com iniciais 'ana'
-
+~~~sql
+select distinct first_name
+from sales.customers
+where first_name ilike 'ana%'
+~~~
 6. Uso do comando IS NULL -- Selecionar apenas as linhas que contém nulo no campo 'population' na tabela temp_tables.regions
-
+~~~sql
+select *
+from temp_tables.regions
+where population is null
+~~~
    
