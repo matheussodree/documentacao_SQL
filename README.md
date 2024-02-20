@@ -363,3 +363,48 @@ select city
 from temp_tables.regions
 where city ilike 'z%'
 ~~~
+* **FUNÇÕES AGREGADAS**
+
+-> Servem para executar operações aritméticas nos registros de uma coluna
+
+-> Funções agregadas não computam células vazias (NULL) como zero
+
+-> Na função COUNT() pode-se utilizar o asterisco (*) para contar todos os registros
+
+-> COUNT(DISTINCT) irá contar apenas os valores exclusivos
+
+TIPOS:
+~~~sql
+count(), sum(), min(), max(), avg()
+~~~
+EXEMPLOS:
+1. Contagem de todas as linhas de uma tabela -- Conte todas as visitas realizadas ao site da empresa
+~~~sql
+select count(*)
+from sales.funnel
+~~~
+2. Contagem das linhas de uma coluna -- Conte todos os pagamentos registrados na tabela sales.funnel
+~~~sql
+select count(paid_date)
+from sales.funnel
+~~~
+3. Contagem distinta de uma coluna -- Conte todos os produtos distintos visitados em jan/24
+~~~sql
+select count(distinct product_id)
+from sales.funnel
+where visit_page_date between '2024-01-01' and '2024-01-31'
+~~~
+4. Calcule o preço mínimo, máximo e médio dos produtos da tabela products
+~~~sql
+select min(price), max(price), avg(price)
+from sales.products
+~~~
+5. Informe qual é o veículo mais caro da tabela products 
+~~~sql
+select max(price)
+from sales.products
+
+select *
+from sales.products
+where price = (select max(price) from sales.products)
+~~~
