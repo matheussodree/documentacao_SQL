@@ -420,4 +420,26 @@ where price = (select max(price) from sales.products)
 -> O group by sozinho funciona como um distinct, eliminando linhas duplicadas
 
 EXEMPLOS:
-1. Contagem agrupada de uma coluna
+1. Contagem agrupada de uma coluna -- Calcule o nº de clientes da tabela customers por estado
+~~~sql
+select state, count(*) as contagem
+from sales.customers
+group by state
+order by contagem desc
+~~~
+2. Contagem agrupada de várias colunas -- Calcule o nº de clientes por estado e status profissional
+~~~sql
+select state, professional_status, count(*) as contagem
+from sales.customers
+group by 1, 2
+order by state, contagem desc
+~~~
+3. Seleção os estados distintos na tabela customers utilizando o group by 
+~~~sql
+select distinct state
+from sales.customers
+
+select state
+from sales.customers
+group by state
+~~~
