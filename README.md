@@ -408,3 +408,16 @@ select *
 from sales.products
 where price = (select max(price) from sales.products)
 ~~~
+
+* __GROUP BY__
+
+-> Serve para agrupar registros semelhantes de uma coluna
+
+-> Normalmente utilizado em conjunto com as funções de agregação
+
+-> Pode-se referenciar a coluna a ser agrupada pela sua posição ordinal (ex.: group by 1,2,3 irá agrupar pelas 3 primeiras colunas da tabela)
+
+-> O group by sozinho funciona como um distinct, eliminando linhas duplicadas
+
+EXEMPLOS:
+1. Contagem agrupada de uma coluna
