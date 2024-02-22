@@ -1,5 +1,6 @@
 # Documentacao_SQL
 Documentação dos estudos de SQL
+Dialeto de SQL -> PostgreSQL 
 
 ### COMANDOS BÁSICOS
 
@@ -442,4 +443,20 @@ from sales.customers
 select state
 from sales.customers
 group by state
+~~~
+* __HAVING__
+
+-> Tem a mesma função do WHERE mas pode ser usado para filtrar os resultados das funções agregadas enquanto o WHERE possui essa limitação
+
+-> A função HAVING também pode filtrar colunas não agregadas
+
+EXEMPLOS:
+1. Seleção com filtro no HAVING -- Calcule o nº de clientes por estado filtrando apenas estados acima de 100 clientes
+~~~sql
+select
+    state,
+    count(*)
+from sales.customers
+group by state
+having count(*) > 100
 ~~~
