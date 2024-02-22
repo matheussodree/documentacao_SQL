@@ -1,6 +1,7 @@
 # Documentacao_SQL
 Documentação dos estudos de SQL
-Dialeto de SQL -> PostgreSQL 
+
+Dialeto do SQL -> PostgreSQL 
 
 ### COMANDOS BÁSICOS
 
