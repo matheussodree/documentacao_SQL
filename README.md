@@ -460,3 +460,44 @@ from sales.customers
 group by state
 having count(*) > 100
 ~~~
+##### EXEMPLOS DE FUNÇÕES AGREGADAS
+1. Conte quantos clientes da tabela sales.customers tem menos de 30 anos
+~~~sql
+select count(*)
+from sales.customers
+where ((current_date - birth_date) / 365) < 30
+~~~
+2. Informe a idade do cliente mais velho e mais novo da tabela sales.customers
+~~~sql
+select
+      max((current_date - birth_date) / 365),
+      min((current_date - birth_date) / 365)
+from sales.customers
+~~~
+3. Selecione todas as informações do cliente mais rico da tabela sales.customers
+~~~sql
+select *
+from sales.customers
+where income = (select max(income) from sales.customers)
+~~~
+4. Conte quantos veículos de cada marca tem registrado na tabela sales.products -- Ordene o resultado pelo nome da marca
+~~~sql
+select brand, count(*)
+from sales.products
+group by brand
+order by brand
+~~~
+5. Conte quantos veículos existem registrados na tabela sales.products -- Por marca e ano do modelo -- Ordene pela nome da marca e pelo ano do veículo
+~~~sql
+select brand, model_year, count(*)
+from sales.products
+group by brand, model_year
+order by brand, model_year
+~~~
+6. Conte quantos veículos de cada marca tem registrado na tabela sales.products -- Mostre apenas as marcas que contém mais de 10 veículos registrados
+~~~sql
+select brand, count(*)
+from sales.products
+group by brand
+having count(*) > 10
+~~~
