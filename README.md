@@ -518,3 +518,5 @@ SINTAXE:
 select t1.coluna_1, t1.coluna_1, t2.coluna_1, t2.coluna_2
 from schema.tabela_1 as t1 join schema.tabela_2 as t2 on condição_de_join
 ~~~
+EXEMPLOS: 
+1. Utilize o LEFT JOIN para fazer join entre as tabelas temp_tables.tabela_1 e temp_tables.tabela_2
