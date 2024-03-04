@@ -502,3 +502,14 @@ from sales.products
 group by brand
 having count(*) > 10
 ~~~
+
+* __JOINS__
+
+-> Servem para combinar colunas de uma ou mais tabelas
+
+-> Pode-se chamar todas as colunas com o asterisco (*), mas não é recomendado
+
+-> É uma boa prática criar alises para nomear as tabelas utilizadas
+
+-> O JOIN sozinho funciona como INNER JOIN
+
