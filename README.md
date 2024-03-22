@@ -547,3 +547,7 @@ select t2.cpf, t1.name, t2.state
 from temp_tables.tabela_1 as t1
 full join temp_tables.tabela_2 as t2 on t1.cpf = t2.cpf
 ~~~
+#### EXEMPLOS DE JOINS
+1. Identifique qual é o status profissional mais frequente nos clientes que compraram automóveis no site
+2. Identifique qual é o gênero mais frequente nos clientes que compraram automóveis no site -- OBS: utilizar a tabela temp_tables.ibge_genders
+3. Identifique de quais regiões são os clientes que mais visitam o site -- OBS: utilizar a tabela temp_tables.regions
