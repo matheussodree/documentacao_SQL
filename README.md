@@ -549,5 +549,15 @@ full join temp_tables.tabela_2 as t2 on t1.cpf = t2.cpf
 ~~~
 #### EXEMPLOS DE JOINS
 1. Identifique qual é o status profissional mais frequente nos clientes que compraram automóveis no site
+~~~sql
+select
+      cus.professional_status,
+      count(fun.paid_date) as pagamentos
+from sales.funnel as fun
+left join sales.customers as cus
+        on fun.customers_id = cus.customers_id
+group by cus.professional_status
+order by pagamentos desc
+~~~
 2. Identifique qual é o gênero mais frequente nos clientes que compraram automóveis no site -- OBS: utilizar a tabela temp_tables.ibge_genders
 3. Identifique de quais regiões são os clientes que mais visitam o site -- OBS: utilizar a tabela temp_tables.regions
