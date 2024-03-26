@@ -560,6 +560,7 @@ group by cus.professional_status
 order by pagamentos desc
 ~~~
 2. Identifique qual é o gênero mais frequente nos clientes que compraram automóveis no site -- OBS: utilizar a tabela temp_tables.ibge_genders
+~~~sql
 select * from temp_tables.ibge_genders limit 10
 
 select
@@ -571,6 +572,9 @@ left join sales.customers as cus
 left join temp_tables.ibge_genders as ibge
       on lower(cus.first_name) = ibge.first_name
 group by ibge.gender
+~~~
 3. Identifique de quais regiões são os clientes que mais visitam o site -- OBS: utilizar a tabela temp_tables.regions
+~~~sql
 select * from sales.customers limit 10
 select * from temp_tables.regions limit 10
+~~~
